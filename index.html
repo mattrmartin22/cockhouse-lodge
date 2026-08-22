@@ -171,6 +171,35 @@ h2.serif.inv em{color:rgba(245,240,232,0.75)}
 hr.rule{border:none;border-top:1px solid var(--rule);margin:0}
 
 
+/* ── AIR TAXI ── */
+.airtaxi{background:var(--bg-off)}
+.airtaxi-inner{
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:4rem;align-items:center;
+  border:1px solid var(--rule);padding:3.5rem;
+}
+.airtaxi-icon{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;gap:1rem;
+}
+.airtaxi-icon svg{width:80px;height:80px;stroke:var(--red);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.airtaxi-icon .miles{
+  font-family:var(--serif);font-size:3rem;font-weight:700;
+  color:var(--red);line-height:1;
+}
+.airtaxi-icon .miles-lbl{
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;
+}
+.airtaxi-text h3{
+  font-family:var(--serif);font-size:1.5rem;font-weight:700;
+  color:var(--black);margin-bottom:0.5rem;
+}
+.airtaxi-text h3 em{font-style:italic;color:var(--red)}
+.airtaxi-text p{font-size:0.95rem;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:1rem}
+.airtaxi-text p:last-of-type{margin-bottom:1.5rem}
+@media(max-width:760px){.airtaxi-inner{grid-template-columns:1fr;gap:2rem;padding:2rem}}
+
 /* ── FLY FISHING ── */
 .flyfishing{background:var(--bg)}
 .ff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
@@ -389,6 +418,7 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
   <ul class="nav-links">
     <li><a href="#amenities">The Lodge</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#airtaxi">Fly In</a></li>
     <li><a href="#flyfishing">Fly Fishing</a></li>
     <li><a href="#history">Lodge History</a></li>
     <li><button class="cta" onclick="openModal()">Book Now</button></li>
@@ -519,6 +549,36 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
 </section>
 
 
+
+<!-- AIR TAXI -->
+<section class="section airtaxi" id="airtaxi">
+  <div class="container">
+    <div class="eyebrow">Fly In & Stay</div>
+    <h2 class="serif">Air Taxi, Lodging <em>&amp; Meals</em></h2>
+    <div style="width:55px;height:3px;background:var(--red);margin-bottom:2.5rem"></div>
+    <div class="airtaxi-inner">
+      <div class="airtaxi-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 16.5L12 3 2 16.5"/>
+          <path d="M2 16.5h20"/>
+          <path d="M12 3v13.5"/>
+          <path d="M7 16.5v3"/>
+          <path d="M17 16.5v3"/>
+          <path d="M5 12h14"/>
+          <circle cx="12" cy="20" r="1"/>
+        </svg>
+        <div class="miles">4.5</div>
+        <div class="miles-lbl">Miles from<br>Navajo Lake Airstrip</div>
+      </div>
+      <div class="airtaxi-text">
+        <h3>Pilots &amp; Plane Access — <em>You Fly, We Handle the Rest</em></h3>
+        <p>The Cockhouse Lodge sits just 4.5 miles from Navajo Lake Airstrip, making us one of the most accessible fly-in destinations in northwest New Mexico. If you have access to a plane, schedule your touchdown and we'll handle everything from there.</p>
+        <p>Whether you're coming in to hunt, fly fish the San Juan, shoot the archery course, or simply unwind in the high desert, we'll pick you up from the airstrip and have a room, a hot meal, and your next day's adventure waiting. We offer full lodging and meals for fly-in guests — just give us a call and tell us when you're landing.</p>
+        <a href="tel:+15053309776" class="btn-primary dark" style="display:inline-block;text-decoration:none">Call Derek — (505) 330-9776</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FLY FISHING -->
 <section class="section flyfishing" id="flyfishing">
@@ -692,7 +752,8 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
       <ul class="foot-links">
         <li><a href="#amenities">The Lodge</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#flyfishing">Fly Fishing</a></li>
+        <li><a href="#airtaxi">Fly In</a></li>
+    <li><a href="#flyfishing">Fly Fishing</a></li>
         <li><a href="#history">Lodge History</a></li>
         <li><a href="mailto:info@cockhouselodge.com">Contact</a></li>
       </ul>
