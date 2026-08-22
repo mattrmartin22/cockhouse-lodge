@@ -171,6 +171,21 @@ h2.serif.inv em{color:rgba(245,240,232,0.75)}
 hr.rule{border:none;border-top:1px solid var(--rule);margin:0}
 
 
+/* ── FLY FISHING ── */
+.flyfishing{background:var(--bg)}
+.ff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.ff-text p{font-size:0.97rem;color:var(--muted);line-height:1.85;margin-bottom:1.1rem;font-weight:300}
+.ff-text p:first-of-type{font-size:1.05rem;color:var(--mid);font-weight:300}
+.ff-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.ff-stat{background:var(--bg);padding:1.5rem;text-align:center}
+.ff-stat-num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:0.3rem}
+.ff-stat-lbl{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.ff-image{position:relative}
+.ff-image img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:brightness(0.92) saturate(0.95)}
+.ff-image::after{content:'';position:absolute;bottom:-12px;right:-12px;width:70px;height:70px;border-right:3px solid var(--red);border-bottom:3px solid var(--red);pointer-events:none}
+.ff-image::before{content:'';position:absolute;top:-12px;left:-12px;width:70px;height:70px;border-left:3px solid var(--red);border-top:3px solid var(--red);pointer-events:none;z-index:2}
+@media(max-width:960px){.ff-grid{grid-template-columns:1fr;gap:3rem}.ff-image{order:-1}.ff-image::before,.ff-image::after{display:none}}
+
 /* ── HISTORY ── */
 .history{background:var(--bg-off)}
 .history-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);margin-top:3rem}
@@ -374,6 +389,7 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
   <ul class="nav-links">
     <li><a href="#amenities">The Lodge</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#flyfishing">Fly Fishing</a></li>
     <li><a href="#history">Lodge History</a></li>
     <li><button class="cta" onclick="openModal()">Book Now</button></li>
   </ul>
@@ -499,6 +515,44 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
 </section>
 
 
+
+<!-- FLY FISHING -->
+<section class="section flyfishing" id="flyfishing">
+  <div class="container">
+    <div class="ff-grid">
+      <div class="ff-text">
+        <div class="eyebrow">Just down the road</div>
+        <h2 class="serif">The San Juan River — <em>World Class Water</em></h2>
+        <div style="width:55px;height:3px;background:var(--red);margin-bottom:1.75rem"></div>
+        <p>The Cockhouse sits less than 30 minutes from one of the greatest trout fisheries on the planet. The San Juan River below Navajo Dam is a year-round tailwater fishery ranked as a Top-10 Fly Fishing Destination in the United States — right in your backyard when you stay with us.</p>
+        <p>Cold, clear water flows out of the bottom of Navajo Dam twelve months a year, creating stable temperatures that never rise above the mid-40s. The result is an extraordinary concentration of fish — up to 15,000 rainbow and brown trout per mile — with fish averaging 16 to 18 inches and trophy specimens well beyond that.</p>
+        <p>The famed Quality Waters section stretches 3.75 miles below the dam — flies and artificial lures only, single barbless hook, catch-and-release. Below that, year-round bait fishing with standard regulations. The river can be waded or floated, and fishes well in every season. Winter months are often spectacular.</p>
+        <p>Wild Out Pro's guided fly fishing trips put you on the San Juan with experienced local guides who know every run, pool, and hatch cycle. Float trips in a drift boat or wade the upper stretch that boats can't reach.</p>
+        <div class="ff-stats">
+          <div class="ff-stat">
+            <div class="ff-stat-num">~30</div>
+            <div class="ff-stat-lbl">Minutes from The Cockhouse</div>
+          </div>
+          <div class="ff-stat">
+            <div class="ff-stat-num">15K</div>
+            <div class="ff-stat-lbl">Trout per mile</div>
+          </div>
+          <div class="ff-stat">
+            <div class="ff-stat-num">4.25</div>
+            <div class="ff-stat-lbl">Miles of Quality Water</div>
+          </div>
+          <div class="ff-stat">
+            <div class="ff-stat-num">12</div>
+            <div class="ff-stat-lbl">Months — year round</div>
+          </div>
+        </div>
+      </div>
+      <div class="ff-image">
+        <img src="fly-fishing.jpg" alt="Trophy brown trout caught on the San Juan River, New Mexico">
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- HISTORY -->
 <section class="section history" id="history">
@@ -631,6 +685,7 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
       <ul class="foot-links">
         <li><a href="#amenities">The Lodge</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#flyfishing">Fly Fishing</a></li>
         <li><a href="#history">Lodge History</a></li>
         <li><a href="mailto:info@cockhouselodge.com">Contact</a></li>
       </ul>
