@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book The Cockhouse Lodge</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a18;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+.topbar{
+  background:#111;border-bottom:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.75rem 1.5rem;flex-shrink:0;
+}
+.back-btn{
+  display:flex;align-items:center;gap:0.5rem;
+  color:rgba(245,240,232,0.5);text-decoration:none;
+  font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;
+  transition:color 0.2s;border:none;background:none;cursor:pointer;
+}
+.back-btn:hover{color:#aa2b15}
+.back-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.topbar-title{
+  font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(245,240,232,0.35);
+}
+.widget-area{flex:1;padding:0}
+.mb_widget{width:100%;min-height:calc(100vh - 48px)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Lodge
+  </button>
+  <span class="topbar-title">The Cockhouse Lodge — Reserve Your Stay</span>
+  <span></span>
+</div>
+<div class="widget-area">
+  <div class="mb_widget" data-id="81XencArHELV"></div>
+</div>
+<script src="https://mallardbay.com/widget/index.js"></script>
+</body>
+</html>
