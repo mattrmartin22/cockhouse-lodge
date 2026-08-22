@@ -594,20 +594,16 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
     <div class="eyebrow">The lodge in photos</div>
     <h2 class="serif">Life at the Lodge</h2>
     <div class="gallery-grid">
-      <div class="g-item" onclick="openLightbox(0)"><img src="https://wild-out-pro-guide-service.netlify.app/images/lodge-sign.jpg" alt="The Cockhouse Lodge sign"></div>
-      <div class="g-item" onclick="openLightbox(1)"><img src="https://ucarecdn.com/22d53059-ef19-4f95-bcaf-171538e2bef1/-/format/jpeg/" alt="Lodge room"></div>
-      <div class="g-item" onclick="openLightbox(2)"><img src="https://ucarecdn.com/f55857cd-b8a0-479a-aa8b-e3235333b6b3/-/format/jpeg/" alt="Lodge exterior"></div>
-      <div class="g-item" onclick="openLightbox(3)"><img src="rv-hookups.jpg" alt="RV hookup area at The Cockhouse Lodge"></div>
-      <div class="g-item" onclick="openLightbox(6)"><img src="https://ucarecdn.com/88771b93-b8ff-4e3f-9ce7-48cf7c7609bd/-/format/jpeg/" alt="Sunset over New Mexico"></div>
-      <div class="g-item" onclick="openLightbox(6)"><img src="https://ucarecdn.com/63e8d35a-2e25-48ef-86d1-32ebd5d7dd81/-/format/jpeg/" alt="Common area"></div>
-      <div class="g-item" onclick="openLightbox(6)"><img src="https://ucarecdn.com/2581d323-9d17-4e37-9925-e658eea778ef/-/format/jpeg/" alt="New Mexico landscape"></div>
-      <div class="g-item" onclick="openLightbox(7)"><img src="fire.jpg" alt="Fire pit under the stars at The Cockhouse Lodge"></div>
-      <div class="g-item" onclick="openLightbox(8)"><img src="gallery-group.jpg" alt="Group photo at The Cockhouse Lodge"></div>
-      <div class="g-item" onclick="openLightbox(9)"><img src="gallery-tv.jpg" alt="Common room with TV and trophy mounts"></div>
-      <div class="g-item" onclick="openLightbox(10)"><img src="gallery-room1.jpg" alt="Private room at The Cockhouse Lodge"></div>
-      <div class="g-item" onclick="openLightbox(11)"><img src="gallery-bunks.jpg" alt="Bunk room at The Cockhouse Lodge"></div>
-      <div class="g-item" onclick="openLightbox(12)"><img src="gallery-kitchen2.jpg" alt="Welcome station and kitchen supplies"></div>
-      <div class="g-item" onclick="openLightbox(13)"><img src="gallery-kitchen.jpg" alt="Full kitchen at The Cockhouse Lodge"></div>
+      <div class="g-item" onclick="openLightbox(0)"><img src="gallery-group.jpg" alt="Group photo at The Cockhouse Lodge"></div>
+      <div class="g-item" onclick="openLightbox(1)"><img src="gallery-exterior.jpg" alt="The Cockhouse Lodge exterior"></div>
+      <div class="g-item" onclick="openLightbox(2)"><img src="rv-hookups.jpg" alt="RV hookup area"></div>
+      <div class="g-item" onclick="openLightbox(3)"><img src="gallery-tv.jpg" alt="Common room with TV and trophy mounts"></div>
+      <div class="g-item" onclick="openLightbox(4)"><img src="gallery-room.jpg" alt="Private room"></div>
+      <div class="g-item" onclick="openLightbox(5)"><img src="gallery-bunks.jpg" alt="Bunk room"></div>
+      <div class="g-item" onclick="openLightbox(6)"><img src="gallery-kitchen.jpg" alt="Full kitchen"></div>
+      <div class="g-item" onclick="openLightbox(7)"><img src="gallery-station.jpg" alt="Welcome station"></div>
+      <div class="g-item" onclick="openLightbox(8)"><img src="fire.jpg" alt="Fire pit under the stars"></div>
+      <div class="g-item" onclick="openLightbox(9)"><img src="fly-fishing.jpg" alt="Trophy trout on the San Juan River"></div>
     </div>
 
     <!-- LIGHTBOX -->
@@ -765,20 +761,16 @@ document.addEventListener('keydown',e=>{
 
 // LIGHTBOX
 const lbPhotos = [
-  {src:'https://wild-out-pro-guide-service.netlify.app/images/lodge-sign.jpg', alt:'The Cockhouse Lodge sign'},
-  {src:'https://ucarecdn.com/22d53059-ef19-4f95-bcaf-171538e2bef1/-/format/jpeg/', alt:'Lodge room'},
-  {src:'https://ucarecdn.com/f55857cd-b8a0-479a-aa8b-e3235333b6b3/-/format/jpeg/', alt:'Lodge exterior'},
-  {src:'rv-hookups.jpg', alt:'RV hookup area — mesa views, full hookups on-property'},
-  {src:'https://ucarecdn.com/88771b93-b8ff-4e3f-9ce7-48cf7c7609bd/-/format/jpeg/', alt:'Sunset over New Mexico'},
-  {src:'https://ucarecdn.com/63e8d35a-2e25-48ef-86d1-32ebd5d7dd81/-/format/jpeg/', alt:'Common area'},
-  {src:'https://ucarecdn.com/2581d323-9d17-4e37-9925-e658eea778ef/-/format/jpeg/', alt:'New Mexico landscape'},
-  {src:'fire.jpg', alt:'Fire pit under the stars at The Cockhouse Lodge'},
-  {src:'gallery-group.jpg', alt:'Group photo at The Cockhouse Lodge'},
-  {src:'gallery-tv.jpg', alt:'Common room with TV and trophy mounts'},
-  {src:'gallery-room1.jpg', alt:'Private room at The Cockhouse Lodge'},
-  {src:'gallery-bunks.jpg', alt:'Bunk room at The Cockhouse Lodge'},
-  {src:'gallery-kitchen2.jpg', alt:'Welcome station and kitchen supplies'},
-  {src:'gallery-kitchen.jpg', alt:'Full kitchen at The Cockhouse Lodge'}
+  {src:'gallery-group.jpg',    alt:'Group photo at The Cockhouse Lodge'},
+  {src:'gallery-exterior.jpg', alt:'The Cockhouse Lodge exterior'},
+  {src:'rv-hookups.jpg',       alt:'RV hookup area with mesa views'},
+  {src:'gallery-tv.jpg',       alt:'Common room with TV and trophy mounts'},
+  {src:'gallery-room.jpg',     alt:'Private room at The Cockhouse Lodge'},
+  {src:'gallery-bunks.jpg',    alt:'Bunk room at The Cockhouse Lodge'},
+  {src:'gallery-kitchen.jpg',  alt:'Full kitchen at The Cockhouse Lodge'},
+  {src:'gallery-station.jpg',  alt:'Welcome Fellow Huntsmen station'},
+  {src:'fire.jpg',             alt:'Fire pit under the stars at The Cockhouse'},
+  {src:'fly-fishing.jpg',      alt:'Trophy trout on the San Juan River'}
 ];
 let lbIdx = 0;
 
