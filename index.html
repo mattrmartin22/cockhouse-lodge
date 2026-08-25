@@ -466,22 +466,39 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
   .modal-top,.modal-body{padding:1.25rem}
 }
 
-/* ── MOBILE HERO ── dedicated crop, less dead sky ── */
+/* ── MOBILE HERO ──
+   Landscape photo in a portrait viewport can't fill the screen without
+   heavy cropping, so on mobile the image becomes a band shown in full
+   and the copy sits beneath it. ── */
 @media(max-width:768px){
   .hero{
-    min-height:100vh;
-    min-height:100svh;      /* avoids the iOS URL-bar height jump */
-    padding-bottom:3rem;
+    min-height:0;
+    display:block;
+    padding-top:0;
+    padding-bottom:2.75rem;
+    background:var(--bg-dark);
   }
   .hero-bg{
+    position:relative;
+    inset:auto;
+    width:100%;
+    aspect-ratio:1000/887;      /* matches hero-mobile.jpg exactly */
+    margin-top:64px;            /* clear the fixed nav */
     background:
       linear-gradient(to bottom,
-        rgba(26,26,24,0.30) 0%,
-        rgba(26,26,24,0.10) 30%,
-        rgba(26,26,24,0.72) 72%,
-        rgba(26,26,24,0.94) 100%),
-      url('images/hero-mobile.jpg') center 40%/cover no-repeat;
+        rgba(26,26,24,0.12) 0%,
+        rgba(26,26,24,0.00) 45%,
+        rgba(38,40,41,0.55) 88%,
+        var(--bg-dark) 100%),
+      url('images/hero-mobile.jpg') center/cover no-repeat;
   }
+  .hero-inner{padding:1.75rem 1.5rem 0}
+  .hero-eyebrow{margin-bottom:1rem}
+  .hero-logo{width:min(300px,72vw) !important;margin-bottom:1.35rem}
+  .hero-desc{font-size:0.92rem;max-width:34ch}
+}
+@supports not (aspect-ratio:1/1){
+  @media(max-width:768px){ .hero-bg{height:346px} }
 }
 
 /* Offset anchor jumps so headings clear the fixed nav */
