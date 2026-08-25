@@ -213,6 +213,41 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0}
 .airtaxi-text p:last-of-type{margin-bottom:1.5rem}
 @media(max-width:760px){.airtaxi-inner{grid-template-columns:1fr;gap:2rem;padding:2rem}}
 
+/* ── AIRSTRIP FIELD CARD ── */
+.airstrip-card{
+  border:1px solid rgba(170,43,21,0.22);
+  border-left:3px solid var(--red);
+  background:rgba(255,255,255,0.5);
+  padding:1.35rem 1.5rem;margin:0 0 1.6rem;
+}
+.airstrip-id{display:flex;align-items:baseline;gap:0.85rem;flex-wrap:wrap;margin-bottom:1rem}
+.airstrip-id-code{
+  font-family:var(--serif);font-size:2.1rem;font-weight:700;
+  color:var(--red);line-height:1;letter-spacing:0.02em;
+}
+.airstrip-id-name{
+  font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;line-height:1.6;
+}
+.airstrip-specs{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0.75rem 1.5rem;margin:0 0 0.9rem;
+}
+.airstrip-specs dt{
+  font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;margin-bottom:0.15rem;
+}
+.airstrip-specs dd{
+  margin:0;font-size:0.88rem;color:var(--black);font-weight:400;
+  font-variant-numeric:tabular-nums;
+}
+.airstrip-note{
+  font-size:0.78rem!important;color:var(--muted)!important;
+  font-style:italic;margin:0!important;line-height:1.6!important;
+}
+@media(max-width:560px){.airstrip-specs{grid-template-columns:1fr}}
+
+
 /* ── FLY FISHING ── */
 .flyfishing{background:var(--bg)}
 .ff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
@@ -709,10 +744,24 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
         <h3>Pilots &amp; Plane Access — <em>You Fly, We Handle the Rest</em></h3>
         <p>The Cockhouse Lodge sits just 4.5 miles from Navajo Lake Airstrip, making us one of the most accessible fly-in destinations in northwest New Mexico. If you have access to a plane, schedule your touchdown and we'll handle everything from there.</p>
         <p>Whether you're coming in to hunt, fly fish the San Juan, shoot the archery course, or simply unwind in the high desert, we'll pick you up from the airstrip and have a room, a hot meal, and your next day's adventure waiting. We offer full lodging and meals for fly-in guests — just give us a call and tell us when you're landing.</p>
+        <div class="airstrip-card">
+          <div class="airstrip-id">
+            <span class="airstrip-id-code">1V0</span>
+            <span class="airstrip-id-name">Navajo Lake Airport<br>Navajo Dam, New Mexico</span>
+          </div>
+          <dl class="airstrip-specs">
+            <div><dt>Runway</dt><dd>6/24 &middot; asphalt</dd></div>
+            <div><dt>Length</dt><dd>5,022 &times; 60 ft</dd></div>
+            <div><dt>Elevation</dt><dd>6,478 ft MSL</dd></div>
+            <div><dt>Coordinates</dt><dd>36&deg;48.50&prime;N / 107&deg;39.16&prime;W</dd></div>
+          </dl>
+          <p class="airstrip-note">Public-use field, no fuel services on site. Call ahead and we&rsquo;ll meet you at the strip.</p>
+        </div>
         <a href="tel:+15053309776" class="btn-primary dark" style="display:inline-block;text-decoration:none">Call Derek — (505) 330-9776</a>
       </div>
     </div>
   </div>
+</section>
 
 
 <!-- VIDEO-FLIGHT -->
@@ -731,8 +780,6 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
       </video>
     </div>
   </div>
-</section>
-
 </section>
 
 <!-- FLY FISHING -->
@@ -819,6 +866,13 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
       <div class="g-item" onclick="openLightbox(7)"><img src="images/gallery-station.jpg" alt="Welcome station"></div>
       <div class="g-item" onclick="openLightbox(8)"><img src="images/fire.jpg" alt="Fire pit under the stars"></div>
       <div class="g-item" onclick="openLightbox(9)"><img src="images/fly-fishing.jpg" alt="Trophy trout on the San Juan River"></div>
+      <div class="g-item" onclick="openLightbox(10)"><img src="images/gallery-hunter-ed.jpg" alt="Youth hunter education class at The Cockhouse Lodge" loading="lazy"></div>
+      <div class="g-item" onclick="openLightbox(11)"><img src="images/gallery-range.jpg" alt="Youth shooting instruction on the range at The Cockhouse Lodge" loading="lazy"></div>
+      <div class="g-item" onclick="openLightbox(12)"><img src="images/gallery-archery.jpg" alt="Custom archery target on the 40-acre course" loading="lazy"></div>
+      <div class="g-item" onclick="openLightbox(13)"><img src="images/gallery-fly-clinic.jpg" alt="Fly fishing gear clinic in the common room" loading="lazy"></div>
+      <div class="g-item" onclick="openLightbox(14)"><img src="images/gallery-firepit-group.jpg" alt="Group around the fire pit at night" loading="lazy"></div>
+      <div class="g-item" onclick="openLightbox(15)"><img src="images/gallery-seating.jpg" alt="Stadium seating in the covered outdoor area" loading="lazy"></div>
+      <div class="g-item" onclick="openLightbox(16)"><img src="images/gallery-blast-cast.jpg" alt="Blast and Cast 2026 at The Cockhouse Lodge" loading="lazy"></div>
     </div>
 
     <!-- LIGHTBOX -->
@@ -1002,7 +1056,14 @@ const lbPhotos = [
   {src:'images/gallery-kitchen.jpg',  alt:'Full kitchen at The Cockhouse Lodge'},
   {src:'images/gallery-station.jpg',  alt:'Welcome Fellow Huntsmen station'},
   {src:'images/fire.jpg',             alt:'Fire pit under the stars at The Cockhouse'},
-  {src:'images/fly-fishing.jpg',      alt:'Trophy trout on the San Juan River'}
+  {src:'images/fly-fishing.jpg',      alt:'Trophy trout on the San Juan River'},
+  {src:'images/gallery-hunter-ed.jpg', alt:'Youth hunter education class at The Cockhouse Lodge'},
+  {src:'images/gallery-range.jpg', alt:'Youth shooting instruction on the range at The Cockhouse Lodge'},
+  {src:'images/gallery-archery.jpg', alt:'Custom archery target on the 40-acre course'},
+  {src:'images/gallery-fly-clinic.jpg', alt:'Fly fishing gear clinic in the common room'},
+  {src:'images/gallery-firepit-group.jpg', alt:'Group around the fire pit at night'},
+  {src:'images/gallery-seating.jpg', alt:'Stadium seating in the covered outdoor area'},
+  {src:'images/gallery-blast-cast.jpg', alt:'Blast and Cast 2026 at The Cockhouse Lodge'}
 ];
 let lbIdx = 0;
 
