@@ -272,7 +272,7 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0}
 .ff-image img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:brightness(0.92) saturate(0.95)}
 .ff-image::after{content:'';position:absolute;bottom:-12px;right:-12px;width:70px;height:70px;border-right:3px solid var(--red);border-bottom:3px solid var(--red);pointer-events:none}
 .ff-image::before{content:'';position:absolute;top:-12px;left:-12px;width:70px;height:70px;border-left:3px solid var(--red);border-top:3px solid var(--red);pointer-events:none;z-index:2}
-@media(max-width:960px){.ff-grid{grid-template-columns:1fr;gap:3rem}.ff-image{order:-1}.ff-image::before,.ff-image::after{display:none}}
+@media(max-width:960px){.ff-grid{grid-template-columns:1fr;gap:2.5rem}.ff-image::before,.ff-image::after{display:none}}
 
 /* ── HISTORY ── */
 .history{background:var(--bg-off)}
@@ -466,6 +466,88 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
   .modal-top,.modal-body{padding:1.25rem}
 }
 
+/* ── MOBILE HERO ── dedicated crop, less dead sky ── */
+@media(max-width:768px){
+  .hero{
+    min-height:100vh;
+    min-height:100svh;      /* avoids the iOS URL-bar height jump */
+    padding-bottom:3rem;
+  }
+  .hero-bg{
+    background:
+      linear-gradient(to bottom,
+        rgba(26,26,24,0.30) 0%,
+        rgba(26,26,24,0.10) 30%,
+        rgba(26,26,24,0.72) 72%,
+        rgba(26,26,24,0.94) 100%),
+      url('images/hero-mobile.jpg') center 40%/cover no-repeat;
+  }
+}
+
+/* Offset anchor jumps so headings clear the fixed nav */
+html{scroll-behavior:smooth}
+#about,#amenities,#airtaxi,#flyfishing,#history,#gallery{scroll-margin-top:80px}
+@media(max-width:768px){
+  #about,#amenities,#airtaxi,#flyfishing,#history,#gallery{scroll-margin-top:72px}
+}
+
+/* ── MOBILE MENU ── */
+.nav-toggle{
+  display:none;background:none;border:none;cursor:pointer;
+  padding:0.5rem;margin-left:0.25rem;
+  flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;
+}
+.nav-toggle-bar{
+  display:block;width:22px;height:2px;background:var(--black);
+  transition:transform 0.28s ease, opacity 0.2s ease;
+}
+.nav-toggle.open .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open .nav-toggle-bar:nth-child(2){opacity:0}
+.nav-toggle.open .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:190;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;
+  transition:opacity 0.3s ease, visibility 0.3s ease;
+  padding:5rem 1.5rem 2rem;
+  overflow-y:auto;
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu-inner{
+  display:flex;flex-direction:column;align-items:center;
+  gap:0.35rem;width:100%;max-width:340px;text-align:center;
+}
+.mobile-menu-inner a{
+  color:var(--black);text-decoration:none;
+  font-family:var(--serif);font-size:1.65rem;font-weight:400;
+  padding:0.6rem 0;width:100%;
+  transition:color 0.2s;
+}
+.mobile-menu-inner a:active{color:var(--red)}
+.mobile-menu-rule{
+  width:55px;height:2px;background:var(--red);margin:1.5rem 0 1.25rem;
+}
+.mobile-menu-cta{
+  background:var(--red);color:var(--cream);border:none;cursor:pointer;
+  font-family:var(--sans);font-size:0.8rem;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  padding:1rem 2.5rem;width:100%;
+}
+.mobile-menu-phone{
+  font-family:var(--sans) !important;font-size:1.1rem !important;
+  font-weight:500 !important;margin-top:1.25rem;
+}
+.mobile-menu-mail{
+  font-family:var(--sans) !important;font-size:0.85rem !important;
+  color:var(--muted) !important;letter-spacing:0.04em;
+}
+@media(max-width:768px){
+  .nav-toggle{display:flex}
+}
+
 /* ════════════════════════════════════════
    COMPREHENSIVE MOBILE OPTIMIZATION
    Tested breakpoints: 375, 430, 768, 1024
@@ -528,8 +610,8 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
 
   /* Fly fishing */
   .ff-grid{grid-template-columns:1fr;gap:2.5rem}
-  .ff-image{order:-1}
   .ff-image::before,.ff-image::after{display:none}
+  .ff-image img{aspect-ratio:4/5}
   .ff-stats{grid-template-columns:repeat(2,1fr)}
 
   /* Air taxi */
@@ -607,8 +689,29 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
   <div class="nav-right">
     <a href="tel:+15053309776" class="nav-phone">+1 505-330-9776</a>
     <button class="nav-mobile-cta" onclick="openModal()">Book Now</button>
+    <button class="nav-toggle" id="navToggle" onclick="toggleMenu()"
+            aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav class="mobile-menu-inner">
+    <a href="#amenities"  onclick="closeMenu()">The Lodge</a>
+    <a href="#gallery"    onclick="closeMenu()">Gallery</a>
+    <a href="#airtaxi"    onclick="closeMenu()">Fly In</a>
+    <a href="#flyfishing" onclick="closeMenu()">Fly Fishing</a>
+    <a href="#history"    onclick="closeMenu()">Lodge History</a>
+    <div class="mobile-menu-rule"></div>
+    <button class="mobile-menu-cta" onclick="closeMenu();openModal()">Book Now</button>
+    <a href="tel:+15053309776" class="mobile-menu-phone">+1 505-330-9776</a>
+    <a href="mailto:info@cockhouselodge.com" class="mobile-menu-mail">info@cockhouselodge.com</a>
+  </nav>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1037,6 +1140,11 @@ function killChat() {
         parseInt(style.bottom) < 100 && 
         parseInt(style.right) < 100 &&
         el.id !== 'bookingModal' &&
+        el.id !== 'mobileMenu' &&
+        el.id !== 'lightbox' &&
+        el.id !== 'nav' &&
+        !el.closest('#mobileMenu') &&
+        !el.closest('#lightbox') &&
         !el.classList.contains('nav')) {
       el.style.display = 'none';
     }
@@ -1051,8 +1159,33 @@ window.addEventListener('scroll',()=>{
 function openModal(){
   window.location.href = 'book.html';
 }
+
+// MOBILE MENU
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  const t = document.getElementById('navToggle');
+  const open = m.classList.toggle('open');
+  t.classList.toggle('open', open);
+  t.setAttribute('aria-expanded', open);
+  t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  m.setAttribute('aria-hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeMenu(){
+  const m = document.getElementById('mobileMenu');
+  if(!m.classList.contains('open')) return;
+  m.classList.remove('open');
+  const t = document.getElementById('navToggle');
+  t.classList.remove('open');
+  t.setAttribute('aria-expanded', false);
+  t.setAttribute('aria-label', 'Open menu');
+  m.setAttribute('aria-hidden', true);
+  document.body.style.overflow = '';
+}
+// close if rotated/resized up to desktop while open
+window.addEventListener('resize', () => { if(window.innerWidth > 768) closeMenu(); });
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){ closeLightbox(); }
+  if(e.key==='Escape'){ closeLightbox(); closeMenu(); }
   if(e.key==='ArrowRight') nextPhoto();
   if(e.key==='ArrowLeft') prevPhoto();
 });
