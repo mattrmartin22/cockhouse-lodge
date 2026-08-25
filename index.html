@@ -475,7 +475,7 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
     min-height:0;
     display:block;
     padding-top:0;
-    padding-bottom:2.75rem;
+    padding-bottom:1.75rem;
     background:var(--bg-dark);
   }
   .hero-bg{
@@ -483,6 +483,8 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
     inset:auto;
     width:100%;
     aspect-ratio:1000/887;      /* matches hero-mobile.jpg exactly */
+    max-height:40vh;            /* on short screens, shrink the band, not the copy */
+    max-height:40svh;
     margin-top:64px;            /* clear the fixed nav */
     background:
       linear-gradient(to bottom,
@@ -492,10 +494,11 @@ footer{background:var(--bg-dark2);padding:2rem 0;border-top:1px solid rgba(255,2
         var(--bg-dark) 100%),
       url('images/hero-mobile.jpg') center/cover no-repeat;
   }
-  .hero-inner{padding:1.75rem 1.5rem 0}
-  .hero-eyebrow{margin-bottom:1rem}
-  .hero-logo{width:min(300px,72vw) !important;margin-bottom:1.35rem}
-  .hero-desc{font-size:0.92rem;max-width:34ch}
+  .hero-inner{padding:1.25rem 1.5rem 0}
+  .hero-eyebrow{margin-bottom:0.75rem}
+  .hero-logo{width:min(260px,66vw) !important;margin-bottom:1rem}
+  .hero-desc{font-size:0.9rem;max-width:34ch;margin-bottom:0.5rem}
+  .hero-actions{gap:0.6rem !important}
 }
 @supports not (aspect-ratio:1/1){
   @media(max-width:768px){ .hero-bg{height:346px} }
